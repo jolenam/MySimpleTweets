@@ -13,9 +13,11 @@ import android.view.MenuItem;
 import com.astuetz.PagerSlidingTabStrip;
 import com.codepath.apps.mysimpletweets.Fragments.HomeTimelineFragment;
 import com.codepath.apps.mysimpletweets.Fragments.MentionsTimelineFragment;
+import com.codepath.apps.mysimpletweets.models.Tweet;
 
 public class TimelineActivity extends AppCompatActivity {
 
+    TweetsPagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,22 @@ public class TimelineActivity extends AppCompatActivity {
         // Get viewpager
         ViewPager vpPager = (ViewPager) findViewById(R.id.viewpager);
         // Set viewpager adapter for pager
-        vpPager.setAdapter(new TweetsPagerAdapter(getSupportFragmentManager()));
+        pagerAdapter = new TweetsPagerAdapter(getSupportFragmentManager());
+        vpPager.setAdapter(pagerAdapter);
         // Find pager sliding tabs
         PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         // Attach pager tabs to viewpager
         tabStrip.setViewPager(vpPager);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            Tweet tweet = (Tweet) data.getSerializableExtra("tweet");
+
+
+
+        }
     }
 
     @Override

@@ -65,6 +65,6 @@
         android:layout_alignParentEnd="true"
         android:hint="@string/prompt"
         android:maxLength="140"
-        android:gravity="top"/>
+        android:gravity="top" />
 
 </RelativeLayout>

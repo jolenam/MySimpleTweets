@@ -3,11 +3,15 @@ package com.codepath.apps.mysimpletweets;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.codepath.apps.mysimpletweets.models.User;
@@ -15,8 +19,6 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
-
-import java.io.Serializable;
 
 import cz.msebera.android.httpclient.Header;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
@@ -43,28 +45,44 @@ public class ComposeActivity extends AppCompatActivity {
         });
 
         Button btnTweet = (Button) findViewById(R.id.btnTweet);
-        EditText etTweet = (EditText) findViewById(R.id.etTweet);
-        final String strTweet = etTweet.getText().toString();
+
 
         btnTweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getApplicationContext(), "hello", Toast.LENGTH_LONG).show();
+                EditText etTweet = (EditText) findViewById(R.id.etTweet);
+                String strTweet = etTweet.getText().toString();
+                Toast.makeText(getApplicationContext(), strTweet, Toast.LENGTH_LONG).show();
                 client.postTweet(strTweet, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        Log.d("debug", response.toString());
                         Tweet tweet = Tweet.fromJSON(response);
 
                         Intent data = new Intent();
-                        data.putExtra("tweet", (Serializable)tweet);
+                        data.putExtra("tweet", tweet);
                         setResult(RESULT_OK, data);
                         finish();
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        Log.d("debug", errorResponse.toString());
+                        super.onFailure(statusCode, headers, throwable, errorResponse);
                     }
                 });
             }
         });
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
     private void populateProfileHeader(User user) {

@@ -43,6 +43,7 @@ public class HomeTimelineFragment extends TweetsListFragment{
 
                 // Load model into listview
                 addAll(tweets);
+
             }
 
             // FAILURE
@@ -51,8 +52,6 @@ public class HomeTimelineFragment extends TweetsListFragment{
                 Log.d("DEBUG", errorResponse.toString());
             }
         });
-
-        // fill the listview by creating the tweet objects from json
     }
 
 }
