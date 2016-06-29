@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvName"
-            android:text="Name"
+            tools:text="Name"
             android:layout_toRightOf="@id/ivProfileImage"
             android:textSize="16sp"/>
 
@@ -40,7 +40,7 @@
             android:id="@+id/tvUsername"
             android:layout_alignLeft="@id/tvName"
             android:layout_below="@id/tvName"
-            android:text="Username"
+            tools:text="Username"
             android:textSize="12sp"/>
     </RelativeLayout>
 
@@ -66,5 +66,18 @@
         android:hint="@string/prompt"
         android:maxLength="140"
         android:gravity="top" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="140"
+        android:id="@+id/tvCount"
+        android:layout_alignBottom="@+id/btnTweet"
+        android:layout_toLeftOf="@+id/btnTweet"
+        android:layout_toStartOf="@+id/btnTweet"
+        android:layout_below="@id/etTweet"
+        android:gravity="center_vertical"
+        />
 
 </RelativeLayout>

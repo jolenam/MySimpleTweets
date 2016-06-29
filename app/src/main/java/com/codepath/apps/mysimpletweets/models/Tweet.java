@@ -33,8 +33,8 @@ public class Tweet implements Serializable{
         return body;
     }
 
-    public long getUid() {
-        return uid;
+    public String getUid() {
+        return String.valueOf(uid);
     }
     public User getUser() {
         return user;

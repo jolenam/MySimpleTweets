@@ -7,5 +7,6 @@
     <string name="action_settings">Settings</string>
     <string name="prompt">What\'s happening?</string>
     <string name="Tweet">Tweet</string>
+    <string name="count">140</string>
 
 </resources>

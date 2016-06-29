@@ -27,12 +27,12 @@ public class HomeTimelineFragment extends TweetsListFragment{
 
         // Get client
         client = TwitterApplication.getRestClient(); // singleton client
-        populateTimeline();
+        populateTimeline(null);
     }
 
-    private void populateTimeline() {
+    protected void populateTimeline(String maxId) {
         // send API request to get timeline json
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
+        client.getHomeTimeline(maxId, new JsonHttpResponseHandler() {
 
             // SUCCESS
             @Override

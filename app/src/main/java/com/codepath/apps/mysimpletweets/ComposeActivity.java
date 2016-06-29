@@ -3,6 +3,8 @@ package com.codepath.apps.mysimpletweets;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,13 +46,38 @@ public class ComposeActivity extends AppCompatActivity {
             }
         });
 
+        final TextView tvCount = (TextView) findViewById(R.id.tvCount);
+        final EditText etTweet = (EditText) findViewById(R.id.etTweet);
+
+        etTweet.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                // this will show characters remaining
+                int length = String.valueOf(s).length();
+                int count = 140 - length;
+                tvCount.setText(String.valueOf(count));
+            }
+        });
+
+
         Button btnTweet = (Button) findViewById(R.id.btnTweet);
 
 
         btnTweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText etTweet = (EditText) findViewById(R.id.etTweet);
                 String strTweet = etTweet.getText().toString();
                 Toast.makeText(getApplicationContext(), strTweet, Toast.LENGTH_LONG).show();
                 client.postTweet(strTweet, new JsonHttpResponseHandler() {

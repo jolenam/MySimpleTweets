@@ -27,7 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         client = TwitterApplication.getRestClient();
-
+        user = (User) getIntent().getSerializableExtra("user");
         // Get the account info
         client.getUserInfo(new JsonHttpResponseHandler() {
             @Override
@@ -35,14 +35,10 @@ public class ProfileActivity extends AppCompatActivity {
                 if (user == null) {
                     user = User.fromJSON(response); // current user (one that is logged in)
                 }
-                else {
-                    user = (User) getIntent().getSerializableExtra("user");
-                }
                 getSupportActionBar().setTitle("@" + user.getScreenName());
                 populateProfileHeader(user);
             }
         });
-
 
 
         // Get screen name; passed in from activity that launches this

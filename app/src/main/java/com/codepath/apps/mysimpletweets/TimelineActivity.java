@@ -18,6 +18,7 @@ public class TimelineActivity extends AppCompatActivity {
 
     SmartFragmentStatePagerAdapter pagerAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class TimelineActivity extends AppCompatActivity {
         PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         // Attach pager tabs to viewpager
         tabStrip.setViewPager(vpPager);
+
     }
 
     @Override
@@ -77,7 +79,7 @@ public class TimelineActivity extends AppCompatActivity {
             super(fm);
         }
 
-        // order and creation of gragments within pager
+        // order and creation of fragments within pager
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
