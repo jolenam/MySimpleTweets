@@ -52,7 +52,9 @@ public class TweetsListFragment extends Fragment {
         aTweets.addAll(tweets);
     }
 
-    public void insert(Tweet tweet) {tweets.add(0, tweet);}
-
-
+    public void appendTweet(Tweet tweet) {
+        tweets.add(0, tweet);
+        aTweets.notifyDataSetChanged();
+        lvTweets.setSelection(0);
+    }
 }

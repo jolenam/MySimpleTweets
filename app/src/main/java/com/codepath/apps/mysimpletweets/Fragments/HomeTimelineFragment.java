@@ -54,4 +54,8 @@ public class HomeTimelineFragment extends TweetsListFragment{
         });
     }
 
+   /* public void appendHomeTweet(Tweet tweet) {
+            appendTweet(tweet);
+    }*/
+
 }

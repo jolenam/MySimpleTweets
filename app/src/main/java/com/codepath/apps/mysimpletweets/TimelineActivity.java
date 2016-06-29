@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -17,7 +16,7 @@ import com.codepath.apps.mysimpletweets.models.Tweet;
 
 public class TimelineActivity extends AppCompatActivity {
 
-    TweetsPagerAdapter pagerAdapter;
+    SmartFragmentStatePagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +38,9 @@ public class TimelineActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
             Tweet tweet = (Tweet) data.getSerializableExtra("tweet");
-
-
-
+            HomeTimelineFragment fragmentHomeTweets =
+                    (HomeTimelineFragment) pagerAdapter.getRegisteredFragment(0);
+            fragmentHomeTweets.appendTweet(tweet);
         }
     }
 
@@ -70,7 +69,7 @@ public class TimelineActivity extends AppCompatActivity {
     }
 
     // Return order of fragments in view pager
-    public class TweetsPagerAdapter extends FragmentPagerAdapter {
+    public class TweetsPagerAdapter extends SmartFragmentStatePagerAdapter{
         private String tabTitles[] = {"Home", "Mentions"};
 
         // Adapter gets the manager to insert or remove fragment from activity
