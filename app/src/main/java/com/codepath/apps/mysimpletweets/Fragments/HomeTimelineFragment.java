@@ -27,10 +27,37 @@ public class HomeTimelineFragment extends TweetsListFragment{
 
         // Get client
         client = TwitterApplication.getRestClient(); // singleton client
-        populateTimeline(null);
+        getTweets(null);
     }
 
-    protected void populateTimeline(String maxId) {
+    @Override
+    protected void getTweets(String maxId) {
+        // send API request to get timeline json
+        client.getHomeTimeline(maxId, new JsonHttpResponseHandler() {
+
+            // SUCCESS
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                Log.d("DEBUG", response.toString());
+                // Create models and add to adapter
+                ArrayList<Tweet> tweets = Tweet.fromJSONArray(response);
+
+                clear();
+
+                // Load model into listview
+                addAll(tweets);
+
+            }
+
+            // FAILURE
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("DEBUG", errorResponse.toString());
+            }
+        });
+    }
+
+    /*protected void populateTimeline(String maxId) {
         // send API request to get timeline json
         client.getHomeTimeline(maxId, new JsonHttpResponseHandler() {
 
@@ -52,10 +79,7 @@ public class HomeTimelineFragment extends TweetsListFragment{
                 Log.d("DEBUG", errorResponse.toString());
             }
         });
-    }
-
-   /* public void appendHomeTweet(Tweet tweet) {
-            appendTweet(tweet);
     }*/
+
 
 }

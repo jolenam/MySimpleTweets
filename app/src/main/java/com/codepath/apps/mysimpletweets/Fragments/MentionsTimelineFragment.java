@@ -25,10 +25,36 @@ public class MentionsTimelineFragment extends TweetsListFragment {
 
         // Get client
         client = TwitterApplication.getRestClient(); // singleton client
-        populateTimeline();
+        getTweets(null);
     }
 
-    private void populateTimeline() {
+    @Override
+    protected void getTweets(String maxId) {
+        // send API request to get timeline json
+        client.getMentionsTimeline(new JsonHttpResponseHandler() {
+
+            // SUCCESS
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                Log.d("DEBUG", response.toString());
+                // Create models and add to adapter
+                ArrayList<Tweet> tweets = Tweet.fromJSONArray(response);
+
+                clear();
+
+                // Load model into listview
+                addAll(tweets);
+            }
+
+            // FAILURE
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("DEBUG", errorResponse.toString());
+            }
+        });
+    }
+
+    /*private void populateTimeline() {
         // send API request to get timeline json
         client.getMentionsTimeline(new JsonHttpResponseHandler() {
 
@@ -49,5 +75,5 @@ public class MentionsTimelineFragment extends TweetsListFragment {
                 Log.d("DEBUG", errorResponse.toString());
             }
         });
-    }
+    }*/
 }

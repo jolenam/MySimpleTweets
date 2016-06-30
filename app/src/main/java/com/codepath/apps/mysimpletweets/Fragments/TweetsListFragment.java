@@ -35,28 +35,27 @@ public abstract class TweetsListFragment extends Fragment {
         lvTweets = (ListView) v.findViewById(R.id.lvTweets);
         //Connect adapter to list view
         lvTweets.setAdapter(aTweets);
-        // Get client
-        return v;
 
-      /* lvTweets.setOnScrollListener(new EndlessScrollListener() {
+
+      /*lvTweets.setOnScrollListener(new EndlessScrollListener() {
             @Override
             public boolean onLoadMore(int page, int totalItemsCount) {
                 // for first request, only specify count, not max_id (https://dev.twitter.com/rest/public/timelines)
                 if (aTweets.getCount() == 0) {
-                    populateTimeline(null);
+                    getTweets(null);
                 }
                 else {
                     Tweet oldestTweet = aTweets.getItem(aTweets.getCount() - 1);
                     String oldId = oldestTweet.getUid();
-                    populateTimeline(oldId);
+                    getTweets(oldId);
                 }
                 return true; // ONLY if more data is actually being loaded; false otherwise.
             }
         });*/
 
 
-        /*// Swipe-to-Refresh
-        swipeContainer = (SwipeRefreshLayout) getView().findViewById(R.id.swipeContainer);
+        // Swipe-to-Refresh
+        swipeContainer = (SwipeRefreshLayout) v.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -64,14 +63,17 @@ public abstract class TweetsListFragment extends Fragment {
                 // Your code to refresh the list here.
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
-                populateTimeline(0);
+                getTweets(null);
+                swipeContainer.setRefreshing(false);
             }
         });
         // Configure the refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);*/
+                android.R.color.holo_red_light);
+        // Get client
+        return v;
     }
 
 
@@ -96,7 +98,11 @@ public abstract class TweetsListFragment extends Fragment {
         lvTweets.setSelection(0);
     }
 
-    //protected abstract void populateTimeline(String maxId);
+    public void clear() {
+        aTweets.clear();
+    }
+
+    protected abstract void getTweets(String maxId);
 
 
 
