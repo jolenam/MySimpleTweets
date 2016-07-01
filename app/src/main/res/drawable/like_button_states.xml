@@ -3,8 +3,8 @@
     <item
         android:state_pressed="true"
         android:state_enabled="true"
-        android:drawable="@drawable/ic_reply_pressed" />
+        android:drawable="@drawable/ic_like_pressed" />
     <item
         android:state_enabled="true"
-        android:drawable="@drawable/ic_reply" />
+        android:drawable="@drawable/ic_like" />
 </selector>

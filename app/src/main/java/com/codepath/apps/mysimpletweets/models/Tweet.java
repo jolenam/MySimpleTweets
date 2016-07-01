@@ -25,6 +25,8 @@ public class Tweet implements Serializable{
     private User user;
     private String createdAt;
 
+    private String inReplyToUserId;
+
     public String getCreatedAt() {
         return createdAt;
     }
@@ -36,8 +38,13 @@ public class Tweet implements Serializable{
     public String getUid() {
         return String.valueOf(uid);
     }
+
     public User getUser() {
         return user;
+    }
+
+    public String getInReplyToUserId() {
+        return inReplyToUserId;
     }
 
     // Deserialize JSON and build Tweet objects
@@ -52,6 +59,8 @@ public class Tweet implements Serializable{
             tweet.uid = jsonObject.getLong("id");
             tweet.createdAt = jsonObject.getString("created_at");
             tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
+            tweet.inReplyToUserId = jsonObject.isNull("in_reply_to_screen_name") ? "" : jsonObject
+                    .getString("in_reply_to_screen_name");
         } catch (JSONException e) {
             e.printStackTrace();
         }

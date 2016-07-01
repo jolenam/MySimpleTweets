@@ -9,5 +9,6 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvTweets" />
+        android:id="@+id/lvTweets"
+        android:background="@android:color/white"/>
 </android.support.v4.widget.SwipeRefreshLayout>

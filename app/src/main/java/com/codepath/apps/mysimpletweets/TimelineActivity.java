@@ -33,8 +33,11 @@ public class TimelineActivity extends AppCompatActivity {
         vpPager.setAdapter(pagerAdapter);
         // Find pager sliding tabs
         PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        tabStrip.setTextColor(R.color.TwitterMain);
         // Attach pager tabs to viewpager
         tabStrip.setViewPager(vpPager);
+
+        getSupportActionBar().setIcon(R.drawable.ic_twitter_logo);
 
     }
 

@@ -66,4 +66,5 @@ public class User implements Serializable {
         // Return user
         return u;
     }
+
 }

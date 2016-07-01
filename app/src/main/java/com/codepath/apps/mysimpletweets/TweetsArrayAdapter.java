@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +43,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         TextView tvBody = (TextView) convertView.findViewById(R.id.tvBody);
         TextView tvFullName = (TextView) convertView.findViewById(R.id.tvFullName);
         TextView tvRelTime = (TextView) convertView.findViewById(R.id.tvRelTime);
+        Button btnReply = (Button) convertView.findViewById(R.id.btnReply);
 
         // 4. Populate data into subviews
         tvUsername.setText("@" + tweet.getUser().getScreenName());
@@ -61,6 +63,17 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
                 i.putExtra("screen_name", tweet.getUser().getScreenName());
                 i.putExtra("user", tweet.getUser());
                 getContext().startActivity(i);
+            }
+        });
+
+        btnReply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ReplyActivity.class);
+                intent.putExtra("userID", tweet.getUser().getUid());
+                intent.putExtra("tweet", tweet);
+                getContext().startActivity(intent);
+
             }
         });
 
