@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp">
 
     <ImageView
@@ -34,7 +36,8 @@
         android:layout_alignBottom="@+id/ivProfileImage"
         android:layout_toRightOf="@+id/ivProfileImage"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:autoLink="all" />
+        android:autoLink="all"
+        android:layout_marginBottom="0dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,18 +83,38 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="19dp"
             android:layout_height="19dp"
-            android:background="@drawable/retweet_button_states"
+            android:background="@drawable/ic_retweet"
             android:id="@+id/btnRT"
             android:paddingLeft="20dp"
             android:layout_marginLeft="70dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/RTCount"
+            android:textSize="12sp"
+            android:paddingLeft="6dp"
+            android:textColor="@color/LightGrey"
+            android:gravity="center_horizontal"
+         />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="19dp"
             android:layout_height="19dp"
-            android:background="@drawable/like_button_states"
+            android:background="@drawable/ic_like"
             android:id="@+id/btnLike"
             android:layout_marginLeft="70dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/favCount"
+            android:textSize="12sp"
+            android:paddingLeft="6dp"
+            android:textColor="@color/LightGrey"
+            android:gravity="center_horizontal"
             />
 
 

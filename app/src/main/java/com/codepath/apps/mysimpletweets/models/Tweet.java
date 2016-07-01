@@ -24,8 +24,33 @@ public class Tweet implements Serializable{
     private long uid;
     private User user;
     private String createdAt;
-
     private String inReplyToUserId;
+    private int retweetCount;
+    private int favoriteCount;
+
+    public int getFavoriteCount() {
+        return favoriteCount;
+    }
+
+    public boolean isFavorited() {
+        return isFavorited;
+    }
+
+    public boolean isRetweeted() {
+        return isRetweeted;
+    }
+
+    private boolean isFavorited;
+
+    public void setRetweeted(boolean retweeted) {
+        isRetweeted = retweeted;
+    }
+
+    public void setFavorited(boolean favorited) {
+        isFavorited = favorited;
+    }
+
+    private  boolean isRetweeted;
 
     public String getCreatedAt() {
         return createdAt;
@@ -39,12 +64,19 @@ public class Tweet implements Serializable{
         return String.valueOf(uid);
     }
 
+    public Long getLongUid() {
+        return uid;
+    }
+
     public User getUser() {
         return user;
     }
 
     public String getInReplyToUserId() {
         return inReplyToUserId;
+    }
+
+    public int getRetweetCount() { return retweetCount;
     }
 
     // Deserialize JSON and build Tweet objects
@@ -61,6 +93,10 @@ public class Tweet implements Serializable{
             tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
             tweet.inReplyToUserId = jsonObject.isNull("in_reply_to_screen_name") ? "" : jsonObject
                     .getString("in_reply_to_screen_name");
+            tweet.retweetCount = jsonObject.optInt("retweet_count");
+            tweet.isFavorited = jsonObject.getBoolean("favorited");
+            tweet.isRetweeted = jsonObject.getBoolean("retweeted");
+            tweet.favoriteCount = jsonObject.optInt("favorite_count");
         } catch (JSONException e) {
             e.printStackTrace();
         }

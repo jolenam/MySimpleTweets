@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.codepath.apps.mysimpletweets.ProfileActivity">
 
     <RelativeLayout
@@ -15,54 +11,84 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/rlUserHeader">
+        android:id="@+id/rlUserHeader"
+        android:padding="20dp"
+        android:background="@color/TwitterMain"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/ivProfileImage"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentLeft="true"
+            android:src="@android:drawable/screen_background_light_transparent"
             android:layout_alignParentTop="true"
-            android:src="@android:drawable/screen_background_light_transparent"/>
+            android:layout_marginRight="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvScreenname"
+            tools:text="Screenname"
+            android:fontFamily="sans-serif-light"
+            android:layout_toRightOf="@id/ivProfileImage"
+            android:layout_below="@id/tvName"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:paddingBottom="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvName"
-            android:text="Name"
+            tools:text="Name"
             android:layout_toRightOf="@id/ivProfileImage"
-            android:textSize="16sp"/>
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvTagline"
-            android:layout_alignLeft="@id/tvName"
-            android:layout_below="@id/tvName"
-            android:text="Tagline"
-            android:textSize="12sp"/>
+            android:layout_toRightOf="@id/ivProfileImage"
+            android:layout_below="@id/tvScreenname"
+            tools:text="Tagline"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-light"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/llCounts"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal"
-        android:layout_below="@id/rlUserHeader">
+        android:layout_below="@id/rlUserHeader"
+        android:background="@color/TwitterMain"
+        android:padding="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/tvFollowers"
-            android:text="5 Followers"/>
+            tools:text="5 Followers"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:fontFamily="sans-serif-light"
+            android:textAllCaps="true"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/tvFollowing"
-            android:layout_marginLeft="20dp"
-            android:text="5 Following"/>
+            tools:text="5 Following"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:fontFamily="sans-serif-light"
+            android:textAllCaps="true"/>
     </LinearLayout>
 
     <FrameLayout

@@ -64,7 +64,6 @@ public abstract class TweetsListFragment extends Fragment {
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
                 getTweets(null);
-
                 swipeContainer.setRefreshing(false);
             }
         });

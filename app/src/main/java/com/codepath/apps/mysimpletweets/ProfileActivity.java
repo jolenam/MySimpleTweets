@@ -62,9 +62,11 @@ public class ProfileActivity extends AppCompatActivity {
         TextView tvTagline = (TextView) findViewById(R.id.tvTagline);
         TextView tvFollowers = (TextView) findViewById(R.id.tvFollowers);
         TextView tvFollowing = (TextView) findViewById(R.id.tvFollowing);
+        TextView tvScreenname = (TextView) findViewById(R.id.tvScreenname);
         ImageView ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
         tvName.setText(user.getName());
         tvTagline.setText(user.getTagline());
+        tvScreenname.setText("@" + user.getScreenName());
         tvFollowers.setText(user.getFollowersCount() + " Followers");
         tvFollowing.setText(user.getFriendsCount() + " Following");
 
