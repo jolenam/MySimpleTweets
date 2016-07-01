@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.codepath.apps.mysimpletweets.models.User;
@@ -49,6 +48,7 @@ public class ComposeActivity extends AppCompatActivity {
         final TextView tvCount = (TextView) findViewById(R.id.tvCount);
         final EditText etTweet = (EditText) findViewById(R.id.etTweet);
 
+        // Changing character count
         etTweet.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -79,7 +79,6 @@ public class ComposeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String strTweet = etTweet.getText().toString();
-                Toast.makeText(getApplicationContext(), strTweet, Toast.LENGTH_LONG).show();
                 client.postTweet(strTweet, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

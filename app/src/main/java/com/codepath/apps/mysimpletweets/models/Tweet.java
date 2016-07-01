@@ -26,7 +26,7 @@ public class Tweet implements Serializable{
     private String createdAt;
 
     public String getCreatedAt() {
-        return getRelativeTimeAgo(createdAt);
+        return createdAt;
     }
 
     public String getBody() {

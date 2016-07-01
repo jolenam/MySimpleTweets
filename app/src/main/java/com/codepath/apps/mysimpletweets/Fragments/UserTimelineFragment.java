@@ -43,7 +43,7 @@ public class UserTimelineFragment extends TweetsListFragment{
                 ArrayList<Tweet> tweets = Tweet.fromJSONArray(response);
 
                 clear();
-                
+
                 // Load model into listview
                 addAll(tweets);
             }
@@ -65,28 +65,4 @@ public class UserTimelineFragment extends TweetsListFragment{
         userFragment.setArguments(args);
         return userFragment;
     }
-
-    /*private void populateTimeline() {
-        // send API request to get timeline json
-        String screenName = getArguments().getString("screen_name");
-        client.getUserTimeline(screenName, new JsonHttpResponseHandler() {
-
-            // SUCCESS
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                Log.d("DEBUG", response.toString());
-                // Create models and add to adapter
-                ArrayList<Tweet> tweets = Tweet.fromJSONArray(response);
-
-                // Load model into listview
-                addAll(tweets);
-            }
-
-            // FAILURE
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("DEBUG", errorResponse.toString());
-            }
-        });
-    }*/
 }

@@ -49,6 +49,7 @@
         android:layout_height="wrap_content"
         android:text="@string/Tweet"
         android:id="@+id/btnTweet"
+        android:background="@drawable/twitterbtn"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -77,6 +78,7 @@
         android:layout_toLeftOf="@+id/btnTweet"
         android:layout_toStartOf="@+id/btnTweet"
         android:layout_below="@id/etTweet"
+        android:paddingRight="5dp"
         android:gravity="center_vertical"
         />
 

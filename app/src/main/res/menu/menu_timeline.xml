@@ -6,7 +6,7 @@
     <item
         android:id="@+id/miProfile"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_profile"
+        android:icon="@drawable/ic_twitter_profile"
         android:title="Profile"
         android:onClick="onProfileView">
 
@@ -15,11 +15,18 @@
     <item
         android:id="@+id/miCompose"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_compose"
+        android:icon="@drawable/ic_action_name"
         android:title="Compose"
         android:onClick="onCompose">
 
     </item>
+
+    <item android:id="@+id/action_search"
+        android:orderInCategory="5"
+        android:title="Search"
+        android:icon="@drawable/ic_search_twitter"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
 
 
 </menu>

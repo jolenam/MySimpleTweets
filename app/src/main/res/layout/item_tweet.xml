@@ -17,7 +17,10 @@
         android:layout_height="wrap_content"
         android:text="billybob"
         android:id="@+id/tvUsername"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/LightGrey"
         android:layout_alignParentTop="true"
+        android:textSize="12sp"
         android:layout_toRightOf="@+id/tvFullName"
         android:layout_toEndOf="@+id/ivProfileImage" />
 
@@ -26,16 +29,22 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvBody"
+        android:fontFamily="sans-serif-light"
+        android:layout_below="@id/tvFullName"
         android:layout_alignBottom="@+id/ivProfileImage"
         android:layout_toRightOf="@+id/ivProfileImage"
-        android:layout_toEndOf="@+id/ivProfileImage" />
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:autoLink="all" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2m"
+        android:fontFamily="sans-serif-light"
         android:id="@+id/tvRelTime"
-        android:layout_alignTop="@id/tvUsername"
+        android:textSize="12sp"
+        android:textColor="@color/LightGrey"
+        android:layout_alignBottom="@id/tvUsername"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -45,8 +54,44 @@
         android:layout_height="wrap_content"
         android:text="Billy"
         android:id="@+id/tvFullName"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:layout_alignBottom="@id/tvFullName"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivProfileImage"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:paddingRight="10dp"/>
+        android:paddingRight="3dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvBody"
+        android:layout_alignLeft="@id/tvBody">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/reply_button_states"
+            android:id="@+id/btnReply" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_retweet"
+            android:id="@+id/btnRT"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Like"
+            android:id="@+id/btnLike"/>
+
+
+    </LinearLayout>
+
+
 </RelativeLayout>
