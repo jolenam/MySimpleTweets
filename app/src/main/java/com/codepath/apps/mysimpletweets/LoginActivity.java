@@ -1,9 +1,11 @@
 package com.codepath.apps.mysimpletweets;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 import com.codepath.oauth.OAuthLoginActionBarActivity;
 
@@ -13,6 +15,12 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+
+		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/twitterFont.ttf");
+		TextView tvTwitter = (TextView)findViewById(R.id.tvTwitter);
+		tvTwitter.setTypeface(myTypeface);
+
+
 	}
 
 

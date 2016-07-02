@@ -12,3 +12,6 @@
         android:id="@+id/lvTweets"
         android:background="@android:color/white"/>
 </android.support.v4.widget.SwipeRefreshLayout>
+
+
+

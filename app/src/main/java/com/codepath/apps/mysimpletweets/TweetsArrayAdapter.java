@@ -71,7 +71,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
 
         if (tweet.isRetweeted()) {
             btnRT.getBackground().setColorFilter(Color.parseColor("#19CF86"), PorterDuff.Mode.SRC_ATOP);
-            //RTCount.setTextColor(Color.parseColor("#19CF86"));
+            RTCount.setTextColor(Color.parseColor("#19CF86"));
         }
         else {
             btnRT.getBackground().setColorFilter(Color.parseColor("#AAB8C2"), PorterDuff.Mode.SRC_ATOP);
@@ -79,7 +79,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
 
         if (tweet.isFavorited()) {
             btnLike.getBackground().setColorFilter(Color.parseColor("#E81C4F"), PorterDuff.Mode.SRC_ATOP);
-            //favCount.setTextColor(Color.parseColor("#E81C4F"));
+            favCount.setTextColor(Color.parseColor("#E81C4F"));
         } else {
             btnLike.getBackground().setColorFilter(Color.parseColor("#AAB8C2"), PorterDuff.Mode.SRC_ATOP);
         }
@@ -156,6 +156,9 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
                        }
                    });
 
+                   if (RTCount.getText() == "") {
+                       RTCount.setText("0");
+                   }
                    int displayedCount = Integer.parseInt((String)RTCount.getText()) + 1;
                    if (displayedCount > 0) {
                        RTCount.setText(String.valueOf(displayedCount));
@@ -210,6 +213,9 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
                     tweet.setFavorited(true);
                     v.getBackground().setColorFilter(Color.parseColor("#E81C4F"), PorterDuff.Mode.SRC_ATOP);
                     favCount.setTextColor(Color.parseColor("#E81C4F"));
+                    if (favCount.getText() == "") {
+                        favCount.setText("0");
+                    }
                     int displayedCount = Integer.parseInt((String)favCount.getText()) + 1;
                     if (displayedCount > 0) {
                         favCount.setText(String.valueOf(displayedCount));

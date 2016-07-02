@@ -19,6 +19,10 @@ public class User implements Serializable {
     private int followersCount;
     private int followingsCount;
 
+
+
+    private String coverImageUrl;
+
     public String getName() {
         return name;
     }
@@ -47,6 +51,10 @@ public class User implements Serializable {
         return followingsCount;
     }
 
+    public String getCoverImageUrl() {
+        return coverImageUrl;
+    }
+
     // deserialize user json => User
     public static User fromJSON(JSONObject jsonObject) {
         // Extract and fill user from JSON
@@ -59,6 +67,7 @@ public class User implements Serializable {
             u.tagline = jsonObject.getString("description");
             u.followersCount = jsonObject.getInt("followers_count");
             u.followingsCount = jsonObject.getInt("friends_count");
+            u.coverImageUrl = jsonObject.optString("profile_background_image_url");
         } catch (JSONException e) {
             e.printStackTrace();
         }

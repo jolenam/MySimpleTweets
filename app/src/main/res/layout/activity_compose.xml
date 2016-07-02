@@ -71,6 +71,7 @@
         android:gravity="top"
         android:textColor="#292f33"
         android:background="@null"
+        android:paddingTop="15dp"
         />
 
     <TextView

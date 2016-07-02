@@ -37,7 +37,11 @@ public class TimelineActivity extends AppCompatActivity {
         // Attach pager tabs to viewpager
         tabStrip.setViewPager(vpPager);
 
-        getSupportActionBar().setIcon(R.drawable.ic_twitter_logo);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_twitter_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
     }
 
