@@ -50,8 +50,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Demo](https://cloud.githubusercontent.com/assets/19499117/16537590/a05a10b2-3fbb-11e6-8e75-6ab9f608cb69.gif) 
-![Demo](https://cloud.githubusercontent.com/assets/19499117/16537605/d2f4c486-3fbb-11e6-87c1-53d8af5ce5b4.gif)
+![Demo](https://cloud.githubusercontent.com/assets/19499117/16537762/edb55d1c-3fc0-11e6-86f8-42dfbe05a1a9.gif) 
+![Demo](https://cloud.githubusercontent.com/assets/19499117/16537763/edc6668e-3fc0-11e6-9c55-b5d83c2f011e.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
