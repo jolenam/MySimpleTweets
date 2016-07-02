@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@android:color/white"
-        app:pstsDividerColor="@android:color/white"
+        app:pstsDividerColor="@color/LightGrey"
         app:pstsIndicatorColor="@color/TwitterMain"
         app:pstsIndicatorHeight="4dp"
         app:pstsUnderlineColor="@android:color/white"
