@@ -3,7 +3,7 @@
 
     <string name="app_name">SimpleTweets</string>
     <string name="login_label">Connect To Twitter</string>
-    <string name="title_activity_timeline">Home Timeline</string>
+    <string name="title_activity_timeline">Your Timeline</string>
     <string name="action_settings">Settings</string>
     <string name="prompt">What\'s happening?</string>
     <string name="Tweet">Tweet</string>
